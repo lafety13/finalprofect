@@ -2,13 +2,13 @@ package ua.booking.entities;
 
 import java.util.Objects;
 
-public class UserManager {
+public class AuthManager {
     private User authUser = null;
 
-    public UserManager() {
+    public AuthManager() {
     }
 
-    public UserManager(User user) {
+    public AuthManager(User user) {
         this.authUser = user;
     }
 
@@ -24,4 +24,5 @@ public class UserManager {
     public boolean isAuthUser() {
         return !Objects.isNull(authUser);
     }
+
 }

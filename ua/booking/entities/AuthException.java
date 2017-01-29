@@ -13,4 +13,9 @@ public class AuthException extends Exception {
     public String getMessage() {
         return super.getMessage();
     }
+
+    @Override
+    public StackTraceElement[] getStackTrace() {
+        return super.getStackTrace();
+    }
 }

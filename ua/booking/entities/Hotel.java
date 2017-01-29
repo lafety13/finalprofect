@@ -24,12 +24,12 @@ public class Hotel {
         return roomOptional.get();
     }
 
-    public boolean book(Room room, User user) {
-        return roomList.get(room.getId()).toSettle(user);
+    public void book(Room room, User user) {
+        roomList.get(room.getId()).toSettle(user);
     }
 
-    public boolean cancelResevation(Room room, User user) {
-        return room.toEvict();
+    public void cancelResevation(Room room, User user) {
+        room.toEvict();
     }
 
     public List<Room> getAllRoom() {

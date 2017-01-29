@@ -6,7 +6,7 @@ public class Room {
     private int id;
     private int price;
     private int person;
-    private User booked = null;
+    private User userReserved = null;
 
     public Room(int id, int price, int person) {
         this.id = id;
@@ -14,22 +14,20 @@ public class Room {
         this.person = person;
     }
 
-    public boolean toSettle(User user) {
-        setBooked(user);
-        return true;
+    public void toSettle(User user) {
+        setUserReserved(user);
     }
 
-    public boolean toEvict() {
-        setBooked(null);
-        return true;
+    public void toEvict() {
+        setUserReserved(null);
     }
 
     public boolean isOccupiedRoom() {
-        return !Objects.isNull(booked);
+        return !Objects.isNull(userReserved);
     }
 
     public boolean isOccupiedRoom(User user) {
-        return !Objects.isNull(booked) && booked.equals(user);
+        return !Objects.isNull(userReserved) && userReserved.equals(user);
     }
 
     public int getId() {
@@ -52,12 +50,12 @@ public class Room {
         this.person = person;
     }
 
-    public User getBooked() {
-        return booked;
+    public User getUserReserved() {
+        return userReserved;
     }
 
-    public void setBooked(User booked) {
-        this.booked = booked;
+    public void setUserReserved(User userReserved) {
+        this.userReserved = userReserved;
     }
 
     @Override
@@ -66,7 +64,7 @@ public class Room {
                 "id=" + id +
                 ", price=" + price +
                 ", person=" + person +
-                ", booked=" + booked +
+                ", userReserved=" + userReserved +
                 '}';
     }
 
@@ -80,7 +78,7 @@ public class Room {
         if (id != room.id) return false;
         if (price != room.price) return false;
         if (person != room.person) return false;
-        return booked != null ? booked.equals(room.booked) : room.booked == null;
+        return userReserved != null ? userReserved.equals(room.userReserved) : room.userReserved == null;
 
     }
 
@@ -89,7 +87,7 @@ public class Room {
         int result = id;
         result = 31 * result + price;
         result = 31 * result + person;
-        result = 31 * result + (booked != null ? booked.hashCode() : 0);
+        result = 31 * result + (userReserved != null ? userReserved.hashCode() : 0);
         return result;
     }
 }

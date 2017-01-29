@@ -37,7 +37,5 @@ public abstract class AbstractDao<T> implements Dao<T> {
     @Override
     public boolean isExist(T obj) {
         return localDb.contains(obj);
-       // return obj < localDb.size() && !Objects.isNull(localDb.get(obj));
-
     }
 }
