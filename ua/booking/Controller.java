@@ -20,7 +20,7 @@ public class Controller {
         listApi.add(new HotelSearchApi());
     }
 
-    public Controller(Api...arrayApi) {
+    public Controller(Api... arrayApi) {
         listApi = Arrays.stream(arrayApi)
                 .collect(Collectors.toCollection(LinkedList::new));
     }

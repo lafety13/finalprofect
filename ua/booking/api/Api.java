@@ -3,7 +3,6 @@ package ua.booking.api;
 import ua.booking.entities.Hotel;
 import ua.booking.entities.NotFoundException;
 import ua.booking.entities.Room;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

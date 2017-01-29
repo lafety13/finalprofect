@@ -1,7 +1,6 @@
 package ua.booking.dao;
 
 import ua.booking.entities.User;
-
 import java.util.LinkedList;
 import java.util.List;
 

@@ -2,7 +2,6 @@ package ua.booking;
 
 import ua.booking.api.HotelSearchApi;
 import ua.booking.entities.User;
-
 import java.util.HashMap;
 import java.util.Map;
 
