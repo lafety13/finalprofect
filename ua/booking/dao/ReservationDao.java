@@ -2,11 +2,11 @@ package ua.booking.dao;
 
 import ua.booking.entities.BookedRoom;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ReservationDao<T extends BookedRoom> extends AbstractDao<T> implements Dao<T> {
-    private List<T> hotelDb = new ArrayList<>();
+    private List<T> hotelDb = new LinkedList<>();
 
     {
         super.setLocalDb(hotelDb);

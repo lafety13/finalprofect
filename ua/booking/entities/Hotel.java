@@ -20,7 +20,8 @@ public class Hotel {
         Optional<Room> roomOptional = roomList.stream()
                 .filter(room -> room.getId() == id)
                 .reduce((room, room2) -> room);
-        if (!roomOptional.isPresent()) throw new NotFoundException("Room was not found");
+        if (!roomOptional.isPresent())
+            throw new NotFoundException("Room was not found");
         return roomOptional.get();
     }
 

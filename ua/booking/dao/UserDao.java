@@ -1,11 +1,12 @@
 package ua.booking.dao;
 
 import ua.booking.entities.User;
-import java.util.ArrayList;
+
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserDao<T extends User> extends AbstractDao<T> implements Dao<T> {
-    private List<T> userDb = new ArrayList<>();
+    private List<T> userDb = new LinkedList<>();
 
     {
         super.setLocalDb(userDb);

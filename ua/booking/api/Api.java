@@ -5,16 +5,17 @@ import ua.booking.entities.NotFoundException;
 import ua.booking.entities.Room;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public abstract class Api {
     private static int hotelId = 0;
-    private List<Hotel> hotelList = new ArrayList<>();
+    private List<Hotel> hotelList = new LinkedList<>();
 
     public Api() {
         int roomId = 0;
-        List<Room> roomList = new ArrayList<>();
+        List<Room> roomList = new LinkedList<>();
         roomList.add(new Room(roomId++, 2000, 2));
         roomList.add(new Room(roomId++, 500, 1));
         roomList.add(new Room(roomId++, 6000, 5));
@@ -29,6 +30,7 @@ public abstract class Api {
         Hotel hote2 = new Hotel(hotelId++, "Tasty", "Kiev", roomList2);
         hotelList.add(hotel);
         hotelList.add(hote2);
+
     }
 
     public List<Hotel> getHotelList() {

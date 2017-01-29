@@ -61,7 +61,8 @@ public class HotelSearchApi extends Api {
         Optional<Hotel> hotelOptional = getHotelList().stream()
                 .filter(hotel -> hotel.getId() == id)
                 .reduce((hotel, hotel2) -> hotel);
-        if (!hotelOptional.isPresent()) throw new NotFoundException("Hotel was not found");
+        if (!hotelOptional.isPresent())
+            throw new NotFoundException("Hotel was not found");
         return hotelOptional.get();
     }
 }

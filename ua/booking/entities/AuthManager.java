@@ -13,7 +13,8 @@ public class AuthManager {
     }
 
     public User getUser() throws AuthException {
-        if (Objects.isNull(authUser)) throw new AuthException("User is not authorized");
+        if (Objects.isNull(authUser))
+            throw new AuthException("User is not authorized");
         return authUser;
     }
 
