@@ -6,7 +6,12 @@ import ua.booking.dao.Dao;
 import ua.booking.dao.ReservationDao;
 import ua.booking.dao.UserDao;
 import ua.booking.entities.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -33,10 +38,10 @@ public class Controller {
                 hotel.book(room, userManager.getUser());
                 saveReservation(new BookedRoom(bookedId++, hotel, room, userManager.getUser()));
             } else {
-                throw new IllegalArgumentException("The room id: " + room.getId() + " is booked by someone. Chose something else");
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "The room id: " + room.getId() + " is booked by someone. Chose something else");
             }
         } catch (NotFoundException | AuthException e) {
-            e.printStackTrace();
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, e.getMessage());
         }
     }
 
@@ -52,10 +57,10 @@ public class Controller {
                 hotel.cancelResevation(room, userManager.getUser());
                 deleteReservation(hotel, room, userManager.getUser());
             } else {
-                throw new IllegalArgumentException("The room with id " + roomId + " is not booked by " + userManager.getUser().getName());
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO,"The room with id " + roomId + " is not booked by " + userManager.getUser().getName());
             }
         } catch (NotFoundException | AuthException e) {
-            e.printStackTrace();
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, e.getMessage());
         }
     }
 
