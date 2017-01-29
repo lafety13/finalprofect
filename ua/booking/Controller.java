@@ -14,7 +14,7 @@ public class Controller {
     private AuthManager userManager = new AuthManager();
     private Dao<User> userDao = new UserDao<>();
     private Dao<BookedRoom> hotelDao = new ReservationDao<>();
-    private List<Api> listApi = new LinkedList<>();
+    private List<Api> listApi = new ArrayList<>();
 
     public Controller() {
         listApi.add(new HotelSearchApi());
@@ -22,7 +22,7 @@ public class Controller {
 
     public Controller(Api... arrayApi) {
         listApi = Arrays.stream(arrayApi)
-                .collect(Collectors.toCollection(LinkedList::new));
+                .collect(Collectors.toList());
     }
 
     public void bookRoom(int hotelId, int roomId) {
